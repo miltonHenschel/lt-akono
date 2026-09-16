@@ -7,6 +7,8 @@
     --accent: #D9660B;
     --accent-soft: #F4E3D2;
     --accent2: #1F6F5C;
+    --section-base: #FFFFFF;
+    --section-alt: #F4E3D2;
     --line: rgba(20,33,61,0.16);
     --line-strong: rgba(20,33,61,0.32);
     --shadow: none;
@@ -23,6 +25,8 @@
       --accent: #F0964C;
       --accent-soft: #3A2C1C;
       --accent2: #56B79E;
+      --section-base: #FFFFFF;
+      --section-alt: #0C1322;
       --line: rgba(236,234,227,0.16);
       --line-strong: rgba(236,234,227,0.3);
       color-scheme: dark;
@@ -37,6 +41,8 @@
     --accent: #F0964C;
     --accent-soft: #3A2C1C;
     --accent2: #56B79E;
+    --section-base: #FFFFFF;
+    --section-alt: #0C1322;
     --line: rgba(236,234,227,0.16);
     --line-strong: rgba(236,234,227,0.3);
     color-scheme: dark;
@@ -207,12 +213,46 @@
     background: var(--paper);
   }
   .section-panel { min-height: 100vh; }
-  .about-section { background: color-mix(in srgb, var(--paper) 80%, var(--surface)); }
-  .programs-section { background: color-mix(in srgb, var(--surface) 88%, var(--paper)); }
-  .admissions-section { background: color-mix(in srgb, var(--surface-2) 82%, var(--paper)); }
-  .news-section { background: color-mix(in srgb, var(--paper) 78%, var(--accent-soft)); }
-  .gallery-section { background: color-mix(in srgb, var(--surface) 90%, var(--accent2)); }
-  .contact-section { background: color-mix(in srgb, var(--paper) 80%, var(--surface-2)); }
+  .about-section,
+  .admissions-section,
+  .gallery-section { background: var(--section-base); }
+  .programs-section,
+  .news-section,
+  .contact-section { background: var(--section-alt); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .about-section,
+    :root:not([data-theme="light"]) .admissions-section,
+    :root:not([data-theme="light"]) .gallery-section,
+    :root:not([data-theme="light"]) .about-section .about-panel {
+      color: #14213D;
+    }
+    :root:not([data-theme="light"]) .about-section .about-grid p,
+    :root:not([data-theme="light"]) .about-section .section-note,
+    :root:not([data-theme="light"]) .admissions-section .section-note,
+    :root:not([data-theme="light"]) .admissions-section .step p,
+    :root:not([data-theme="light"]) .gallery-section .section-note {
+      color: #334155;
+    }
+    :root:not([data-theme="light"]) .about-section .about-panel {
+      background: #F8FAFC;
+    }
+  }
+  :root[data-theme="dark"] .about-section,
+  :root[data-theme="dark"] .admissions-section,
+  :root[data-theme="dark"] .gallery-section,
+  :root[data-theme="dark"] .about-section .about-panel {
+    color: #14213D;
+  }
+  :root[data-theme="dark"] .about-section .about-grid p,
+  :root[data-theme="dark"] .about-section .section-note,
+  :root[data-theme="dark"] .admissions-section .section-note,
+  :root[data-theme="dark"] .admissions-section .step p,
+  :root[data-theme="dark"] .gallery-section .section-note {
+    color: #334155;
+  }
+  :root[data-theme="dark"] .about-section .about-panel {
+    background: #F8FAFC;
+  }
   .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 44px; flex-wrap: wrap; }
   .section-num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
   h2.section-title { font-size: clamp(26px, 4vw, 34px); font-weight: 700; margin: 0; letter-spacing: -0.01em; max-width: 20ch; }
