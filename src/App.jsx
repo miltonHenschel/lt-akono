@@ -67,6 +67,7 @@ function App() {
       <div className="brand-text">Lycée Technique d'Akono<small data-fr="LT AKONO · 6e — Tle" data-en="G.T.H.S. AKONO · Form 1 — Upper Sixth">LT AKONO · 6e — Tle</small></div>
     </a>
     <nav className={navOpen ? "links open" : "links"}>
+      <a href="#top" data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="#apropos" data-fr="À propos" data-en="About">À propos</a>
       <a href="#filieres" data-fr="Filières" data-en="Programs">Filières</a>
       <a href="#admissions" data-fr="Admissions" data-en="Admissions">Admissions</a>
@@ -89,7 +90,7 @@ function App() {
 </header>
 
 <main id="top">
-  <section className="hero" style={{ borderBottom: "1px solid var(--line)", padding: 0 }}>
+  <section className="hero section-panel" style={{ borderBottom: "1px solid var(--line)", padding: 0 }}>
     <div className="hero-inner">
       <div className="hero-tag" data-fr="ÉTABLISSEMENT D'ENSEIGNEMENT TECHNIQUE" data-en="TECHNICAL EDUCATION INSTITUTION">ÉTABLISSEMENT D'ENSEIGNEMENT TECHNIQUE</div>
       <h1 className="hero-title" data-fr="Former les techniciens et ingénieurs de demain" data-en="Training tomorrow's technicians and engineers">Former les techniciens et ingénieurs de demain</h1>
@@ -107,7 +108,7 @@ function App() {
     </div>
   </section>
 
-  <section id="apropos">
+  <section id="apropos" className="section-panel about-section">
     <div className="wrap about-grid">
       <div>
         <div className="section-num">01</div>
@@ -128,7 +129,7 @@ function App() {
     </div>
   </section>
 
-  <section id="filieres">
+  <section id="filieres" className="section-panel programs-section">
     <div className="wrap">
       <div className="section-head">
         <div>
@@ -177,7 +178,7 @@ function App() {
     </div>
   </section>
 
-  <section id="admissions">
+  <section id="admissions" className="section-panel admissions-section">
     <div className="wrap">
       <div className="section-head">
         <div>
@@ -211,7 +212,7 @@ function App() {
     </div>
   </section>
 
-  <section id="actualites">
+  <section id="actualites" className="section-panel news-section">
     <div className="wrap">
       <div className="section-head">
         <div>
@@ -248,7 +249,7 @@ function App() {
     </div>
   </section>
 
-  <section id="galerie">
+  <section id="galerie" className="section-panel gallery-section">
     <div className="wrap">
       <div className="section-head">
         <div>
@@ -265,7 +266,7 @@ function App() {
     </div>
   </section>
 
-  <section id="contact" style={{ borderBottom: "none" }}>
+  <section id="contact" className="section-panel contact-section" style={{ borderBottom: "none" }}>
     <div className="wrap contact-grid">
       <div>
         <div className="section-num">06</div>
@@ -302,8 +303,8 @@ function App() {
   <div className="wrap footer-shell">
     <div className="footer-map">
       <iframe
-        title="Google Maps preview of LT Akono"
-        src="https://www.google.com/maps?q=Akono%2C%20Cameroon&z=13&output=embed"
+        title="Google Maps preview of Lycée Technique d'Akono"
+        src="https://maps.google.com/maps?q=Lyc%C3%A9e%20Technique%20d%27Akono%20Akono%20Cameroon&output=embed"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
@@ -311,6 +312,16 @@ function App() {
     <div className="foot-row">
       <span data-fr="© 2026 Lycée Technique d'Akono" data-en="© 2026 G.T.H.S. Akono">© 2026 Lycée Technique d'Akono</span>
       <span className="mono" data-fr="Matricule : 5KC1TEFD110406102" data-en="School code: 5KC1TEFD110406102">Matricule : 5KC1TEFD110406102</span>
+      <a
+        className="map-link"
+        href="https://maps.app.goo.gl/9kZjKdreauA4Rwrz8"
+        target="_blank"
+        rel="noreferrer"
+        data-fr="Voir sur Google Maps"
+        data-en="View on Google Maps"
+      >
+        Voir sur Google Maps
+      </a>
     </div>
   </div>
 </footer>

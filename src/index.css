@@ -43,7 +43,7 @@
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
   body {
     margin: 0;
     background: var(--paper);
@@ -52,6 +52,7 @@
     line-height: 1.55;
     transition: background 0.25s ease, color 0.25s ease;
   }
+  main { overflow: hidden; }
   .mono { font-family: 'IBM Plex Mono', monospace; }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
@@ -168,7 +169,20 @@
   .stat-label { font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; }
 
   /* ---------- Section shared ---------- */
-  section { padding: 84px 0; border-bottom: 1px solid var(--line); }
+  section {
+    min-height: 100vh;
+    padding: 84px 0;
+    border-bottom: 1px solid var(--line);
+    scroll-snap-align: start;
+    background: var(--paper);
+  }
+  .section-panel { min-height: 100vh; }
+  .about-section { background: color-mix(in srgb, var(--paper) 80%, var(--surface)); }
+  .programs-section { background: color-mix(in srgb, var(--surface) 88%, var(--paper)); }
+  .admissions-section { background: color-mix(in srgb, var(--surface-2) 82%, var(--paper)); }
+  .news-section { background: color-mix(in srgb, var(--paper) 78%, var(--accent-soft)); }
+  .gallery-section { background: color-mix(in srgb, var(--surface) 90%, var(--accent2)); }
+  .contact-section { background: color-mix(in srgb, var(--paper) 80%, var(--surface-2)); }
   .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; margin-bottom: 44px; flex-wrap: wrap; }
   .section-num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
   h2.section-title { font-size: clamp(26px, 4vw, 34px); font-weight: 700; margin: 0; letter-spacing: -0.01em; max-width: 20ch; }
@@ -237,7 +251,7 @@
   footer { padding: 40px 0; }
   .footer-shell {
     display: grid;
-    grid-template-columns: minmax(220px, 380px) 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     align-items: center;
   }
@@ -245,12 +259,13 @@
     border: 1px solid var(--line);
     overflow: hidden;
     background: var(--surface);
-    min-height: 190px;
+    min-height: 220px;
+    width: 100%;
   }
   .footer-map iframe {
     display: block;
     width: 100%;
-    height: 190px;
+    height: 220px;
     border: 0;
     filter: grayscale(1) contrast(1.06);
   }
@@ -263,6 +278,12 @@
     font-size: 13px;
     color: var(--ink-soft);
   }
+  .map-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .map-link:hover { text-decoration: underline; }
 
   @media (max-width: 860px) {
     nav.links { display: none; }
