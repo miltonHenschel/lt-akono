@@ -27,6 +27,9 @@
       --accent2: #56B79E;
       --section-base: #FFFFFF;
       --section-alt: #0C1322;
+      --dark-card: #1A2740;
+      --dark-card-ink: #F8FAFC;
+      --dark-card-muted: #CBD5E1;
       --line: rgba(236,234,227,0.16);
       --line-strong: rgba(236,234,227,0.3);
       color-scheme: dark;
@@ -43,6 +46,9 @@
     --accent2: #56B79E;
     --section-base: #FFFFFF;
     --section-alt: #0C1322;
+    --dark-card: #1A2740;
+    --dark-card-ink: #F8FAFC;
+    --dark-card-muted: #CBD5E1;
     --line: rgba(236,234,227,0.16);
     --line-strong: rgba(236,234,227,0.3);
     color-scheme: dark;
@@ -419,6 +425,36 @@
   .department-head { display: block; margin-bottom: 8px; color: var(--ink); font-size: 12px; line-height: 1.4; }
   .department-name { margin: 0 0 14px; font-size: 15px; font-weight: 700; }
   .teacher-list li { color: var(--ink-soft); font-size: 12px; line-height: 1.55; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .administrator-card,
+    :root:not([data-theme="light"]) .department-group,
+    :root:not([data-theme="light"]) .department-item {
+      background: var(--dark-card);
+      color: var(--dark-card-ink);
+    }
+    :root:not([data-theme="light"]) .administrator-card h3,
+    :root:not([data-theme="light"]) .department-name,
+    :root:not([data-theme="light"]) .department-head {
+      color: var(--dark-card-ink);
+    }
+    :root:not([data-theme="light"]) .teacher-list li {
+      color: var(--dark-card-muted);
+    }
+  }
+  :root[data-theme="dark"] .administrator-card,
+  :root[data-theme="dark"] .department-group,
+  :root[data-theme="dark"] .department-item {
+    background: var(--dark-card);
+    color: var(--dark-card-ink);
+  }
+  :root[data-theme="dark"] .administrator-card h3,
+  :root[data-theme="dark"] .department-name,
+  :root[data-theme="dark"] .department-head {
+    color: var(--dark-card-ink);
+  }
+  :root[data-theme="dark"] .teacher-list li {
+    color: var(--dark-card-muted);
+  }
   @keyframes tree-level-reveal {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
@@ -510,11 +546,16 @@
     .footer-shell { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .tree-level { flex-direction: column; align-items: stretch; }
+    .tree-level { align-items: stretch; }
+    .tree-level:not(.tree-principal) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .tree-level .administrator-card,
     .tree-principal .administrator-card,
     .tree-teachers .administrator-card { max-width: none; }
-    .department-groups,
+    .tree-principal { display: flex; }
+    .department-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .department-list { grid-template-columns: 1fr; }
     .news-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
