@@ -121,6 +121,40 @@ function App() {
       descriptionEn: "Garment making, styling and textile technology.",
     },
   ];
+  const departments = [
+    {
+      groupFr: "DÉPARTEMENTS DE TRONC COMMUN",
+      groupEn: "COMMON CORE DEPARTMENTS",
+      departments: [
+        { name: "Anglais", head: "Ofuka", teachers: ["FOMBERE", "MANGA C.", "NNAMBOLE"] },
+        { name: "EPS", head: "EMBOLO", teachers: ["GUIMKENG"] },
+        { name: "Français", head: "MEBENGA", teachers: ["MBIA NOAH"] },
+        { name: "Histoire-Géographie-ECM-Philosophie", head: "ESSONO", teachers: ["ABAH ACHILLE", "ETEME", "MANGA"] },
+        { name: "Hygiène-Biologie", head: "TETKA", teachers: [] },
+        { name: "Informatique", head: "NKETCHOGUE", teachers: ["OKA"] },
+        { name: "Mathématiques", head: "NGONO ONDOA", teachers: ["DIFFO", "FOKOUE"] },
+        { name: "Physique-Chimie", head: "NGOLI", teachers: ["AGHA", "NDENGUE", "NZOUETCHOU", "YOMI"] },
+      ],
+    },
+    {
+      groupFr: "DÉPARTEMENTS DE SPÉCIALITÉ",
+      groupEn: "SPECIALITY DEPARTMENTS",
+      departments: [
+        { name: "ACA", head: "EBA EFFA", teachers: ["ALOA", "AMBA'A", "MBEZELE", "MESSI BISSA", "N'DI NDJIBU LIZETTE", "NFONO"] },
+        { name: "MENU/AMEB", head: "MVOGO B.", teachers: ["DJUIFO", "KETOUM", "MESSINA", "NIJEN", "ONANA A."] },
+        { name: "ESCOM/CG", head: "MENGUE NTYE", teachers: ["AMOUAVOURI", "EWONDO", "MENGUE YANA", "MINLO", "TCHOUMTCHOUA"] },
+        { name: "CM", head: "NLEND B.", teachers: ["BELLALOMO", "FORMIN", "TSAMO A."] },
+        { name: "Droit", head: "LEA", teachers: ["BIDJO", "BOULE"] },
+        { name: "Économie", head: "NOAH ATEBA", teachers: ["MEKO O.", "OLEMBE M."] },
+        { name: "ESF", head: "MABE T.", teachers: ["GUIADEM T.", "MAKAM H.", "MBASSIKOL", "MOMNOUGUI", "ZEUFACK D."] },
+        { name: "EE/F3", head: "GUIADEM O.", teachers: ["JEWELDAI", "NTSAMA MB."] },
+        { name: "MACO/F4", head: "MAFFO N.", teachers: ["AWANA E.", "DJUATIO", "NGUEMA", "NJOH", "OWONE E.", "VOUNDI"] },
+        { name: "COME/IH", head: "MVOGO", teachers: ["ABOMBA", "BATCHOU", "FOGANG", "MAKAM C", "MAMBO", "MEYO", "ONOGO MARIE", "TJIDJO"] },
+        { name: "Marketing", head: "ASSOMO", teachers: ["KOUNGA"] },
+        { name: "MARE/CMA-MVT", head: "MBOUMBOUO", teachers: ["MBOUDOU", "NGUIMDO"] },
+      ],
+    },
+  ];
   useEffect(() => {
     const sliderTimer = window.setInterval(() => {
       setSpecialityIndex((index) =>
@@ -143,7 +177,7 @@ function App() {
       <a href="#top" onClick={closeMobileMenu} data-fr="Accueil" data-en="Home">Accueil</a>
       <a href="#apropos" onClick={closeMobileMenu} data-fr="À propos" data-en="About">À propos</a>
       <a href="#filieres" onClick={closeMobileMenu} data-fr="Filières" data-en="Programs">Filières</a>
-      <a href="#admissions" onClick={closeMobileMenu} data-fr="Admissions" data-en="Admissions">Admissions</a>
+      <a href="#administration" onClick={closeMobileMenu} data-fr="Administration" data-en="Administration">Administration</a>
       <a href="#actualites" onClick={closeMobileMenu} data-fr="Actualités" data-en="News">Actualités</a>
       <a href="#galerie" onClick={closeMobileMenu} data-fr="Galerie" data-en="Gallery">Galerie</a>
       <a href="#contact" onClick={closeMobileMenu} data-fr="Contact" data-en="Contact">Contact</a>
@@ -178,7 +212,7 @@ function App() {
       <h1 className="hero-title" data-fr="Former les techniciens et ingénieurs de demain" data-en="Training tomorrow's technicians and engineers">Former les techniciens et ingénieurs de demain</h1>
       <p className="hero-sub" data-fr="Du 1er cycle au 2nd cycle, le Lycée Technique d'Akono (LT AKONO) prépare ses élèves aux métiers techniques à travers un enseignement rigoureux et des ateliers pratiques bien équipés." data-en="From lower to upper secondary, Government Technical High School Akono (G.T.H.S. AKONO) prepares students for technical careers through rigorous teaching and well-equipped workshops.">Du 1er cycle au 2nd cycle, le Lycée Technique d'Akono (LT AKONO) prépare ses élèves aux métiers techniques à travers un enseignement rigoureux et des ateliers pratiques bien équipés.</p>
       <div className="hero-cta">
-        <a href="#admissions" className="btn btn-primary" data-fr="Procédure d'admission" data-en="Admissions process">Procédure d'admission</a>
+        <a href="#administration" className="btn btn-primary" data-fr="Administration" data-en="Administration">Administration</a>
         <a href="#filieres" className="btn btn-outline" data-fr="Voir les filières" data-en="View Specialities">Voir les filières</a>
       </div>
       <div className="hero-stats">
@@ -258,35 +292,99 @@ function App() {
     </div>
   </section>
 
-  <section id="admissions" className="section-panel admissions-section">
+  <section id="administration" className="section-panel administration-section">
     <div className="wrap">
       <div className="section-head">
         <div>
           <div className="section-num">03</div>
-          <h2 className="section-title" data-fr="Procédure d'admission" data-en="Admissions process">Procédure d'admission</h2>
+          <h2 className="section-title" data-fr="Administration" data-en="Administration">Administration</h2>
         </div>
-        <div className="section-note" data-fr="Les inscriptions se déroulent chaque année de mai à septembre." data-en="Registration runs every year from May to September.">Les inscriptions se déroulent chaque année de mai à septembre.</div>
+        <div className="section-note" data-fr="L'équipe administrative et pédagogique du Lycée Technique d'Akono." data-en="The administrative and educational team of Government Technical High School Akono.">L'équipe administrative et pédagogique du Lycée Technique d'Akono.</div>
       </div>
-      <div className="steps">
-        <div className="step">
-          <div className="step-index">01</div>
-          <h4 data-fr="Retrait du dossier" data-en="Collect the file">Retrait du dossier</h4>
-          <p data-fr="Auprès du secrétariat, du lundi au vendredi." data-en="From the front office, Monday to Friday.">Auprès du secrétariat, du lundi au vendredi.</p>
+      <div className="administration-tree">
+        <div className="tree-level tree-principal">
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Principal" data-en="Principal">Principal</div>
+            <h3>AMBE Gabriel</h3>
+          </div>
         </div>
-        <div className="step">
-          <div className="step-index">02</div>
-          <h4 data-fr="Constitution du dossier" data-en="Prepare documents">Constitution du dossier</h4>
-          <p data-fr="Bulletins, acte de naissance, photos d'identité." data-en="Report cards, birth certificate, ID photos.">Bulletins, acte de naissance, photos d'identité.</p>
+        <div className="tree-connector"></div>
+        <div className="tree-level tree-vice-principals">
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Vice-Principal · Section générale" data-en="Vice-Principal · General Section">Vice-Principal · Section générale</div>
+            <h3>MANGA</h3>
+          </div>
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Vice-Principal · Section STT" data-en="Vice-Principal · STT Section">Vice-Principal · Section STT</div>
+            <h3>ONANA Ernest</h3>
+          </div>
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Vice-Principal · Section IND" data-en="Vice-Principal · IND Section">Vice-Principal · Section IND</div>
+            <h3>DIBOMA</h3>
+          </div>
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Vice-Principal · Section IND" data-en="Vice-Principal · IND Section">Vice-Principal · Section IND</div>
+            <h3>INACK</h3>
+          </div>
         </div>
-        <div className="step">
-          <div className="step-index">03</div>
-          <h4 data-fr="Test d'orientation" data-en="Placement test">Test d'orientation</h4>
-          <p data-fr="Pour orienter l'élève vers la filière adaptée." data-en="To guide the student toward the right program.">Pour orienter l'élève vers la filière adaptée.</p>
+        <div className="tree-connector"></div>
+        <div className="tree-level tree-discipline">
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Surveillant Général" data-en="Senior Discipline Master">Surveillant Général</div>
+            <h3>ONAMBELE</h3>
+          </div>
+          <div className="administrator-card">
+            <img className="administrator-photo" src={logoUrl} alt="" />
+            <div className="administrator-role" data-fr="Conseiller de discipline" data-en="Discipline Master">Conseiller de discipline</div>
+            <h3 data-fr="Nom à ajouter" data-en="Name to be added">Nom à ajouter</h3>
+          </div>
+          {["EYEMAM", "NGOMBI", "NGUENDA", "NTONGO"].map((name) => (
+            <div className="administrator-card" key={name}>
+              <img className="administrator-photo" src={logoUrl} alt="" />
+              <div className="administrator-role" data-fr="Conseiller d'orientation" data-en="Guidance Counsellor">Conseiller d'orientation</div>
+              <h3>{name}</h3>
+            </div>
+          ))}
         </div>
-        <div className="step">
-          <div className="step-index">04</div>
-          <h4 data-fr="Confirmation" data-en="Confirmation">Confirmation</h4>
-          <p data-fr="Paiement des frais et remise du certificat de scolarité." data-en="Fee payment and issuance of the enrollment certificate.">Paiement des frais et remise du certificat de scolarité.</p>
+        <div className="tree-connector"></div>
+        <div className="department-groups">
+          {departments.map((department) => (
+            <div className="department-group" key={department.groupFr}>
+              <div
+                className="administrator-role"
+                data-fr={department.groupFr}
+                data-en={department.groupEn}
+              >
+                {department.groupFr}
+              </div>
+              <div className="department-list">
+                {department.departments.map((departmentItem) => (
+                  <div className="department-item" key={departmentItem.name}>
+                    <h3 className="department-name">{departmentItem.name}</h3>
+                    <img className="administrator-photo" src={logoUrl} alt="" />
+                    <strong
+                      className="department-head"
+                      data-fr={`${departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)`}
+                      data-en={`${departmentItem.head?.toUpperCase() || "NAME TO BE ADDED"} (HOD)`}
+                    >
+                      {departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)
+                    </strong>
+                    <ul className="teacher-list">
+                      {departmentItem.teachers.map((teacher) => (
+                        <li key={teacher}>{teacher}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -214,22 +214,21 @@
   }
   .section-panel { min-height: 100vh; }
   .about-section,
-  .admissions-section,
+  .administration-section,
   .gallery-section { background: var(--section-base); }
   .programs-section,
   .news-section,
   .contact-section { background: var(--section-alt); }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .about-section,
-    :root:not([data-theme="light"]) .admissions-section,
+    :root:not([data-theme="light"]) .administration-section,
     :root:not([data-theme="light"]) .gallery-section,
     :root:not([data-theme="light"]) .about-section .about-panel {
       color: #14213D;
     }
     :root:not([data-theme="light"]) .about-section .about-grid p,
     :root:not([data-theme="light"]) .about-section .section-note,
-    :root:not([data-theme="light"]) .admissions-section .section-note,
-    :root:not([data-theme="light"]) .admissions-section .step p,
+    :root:not([data-theme="light"]) .administration-section .section-note,
     :root:not([data-theme="light"]) .gallery-section .section-note {
       color: #334155;
     }
@@ -238,15 +237,14 @@
     }
   }
   :root[data-theme="dark"] .about-section,
-  :root[data-theme="dark"] .admissions-section,
+  :root[data-theme="dark"] .administration-section,
   :root[data-theme="dark"] .gallery-section,
   :root[data-theme="dark"] .about-section .about-panel {
     color: #14213D;
   }
   :root[data-theme="dark"] .about-section .about-grid p,
   :root[data-theme="dark"] .about-section .section-note,
-  :root[data-theme="dark"] .admissions-section .section-note,
-  :root[data-theme="dark"] .admissions-section .step p,
+  :root[data-theme="dark"] .administration-section .section-note,
   :root[data-theme="dark"] .gallery-section .section-note {
     color: #334155;
   }
@@ -336,12 +334,42 @@
   .dept-card h3 { font-size: 17.5px; margin: 0 0 10px; font-weight: 600; }
   .dept-card p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
 
-  /* ---------- Admissions ---------- */
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  .step { border-top: 2px solid var(--ink); padding-top: 16px; }
-  .step-index { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); margin-bottom: 10px; font-weight: 600; }
-  .step h4 { margin: 0 0 8px; font-size: 15.5px; }
-  .step p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
+  /* ---------- Administration ---------- */
+  .administration-tree { display: flex; flex-direction: column; align-items: center; }
+  .tree-level { display: flex; justify-content: center; gap: 16px; width: 100%; }
+  .tree-level .administrator-card { flex: 1 1 0; max-width: 260px; }
+  .tree-principal .administrator-card { max-width: 320px; }
+  .tree-teachers .administrator-card { max-width: 420px; }
+  .tree-connector { width: 1px; height: 28px; background: var(--line-strong); }
+  .administrator-card { background: var(--surface); border: 1px solid var(--line); padding: 26px; min-height: 145px; box-shadow: 0 14px 30px -24px rgba(20,33,61,0.65); }
+  .administrator-photo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface-2);
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  .administrator-role { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 14px; }
+  .administrator-card h3 { margin: 0; font-size: 19px; font-weight: 600; }
+  .administrator-name-list,
+  .teacher-list { list-style: none; margin: 0; padding: 0; }
+  .administrator-name-list { color: var(--ink); font-size: 15px; line-height: 1.6; }
+  .administrator-card,
+  .department-item { text-align: center; }
+  .administrator-photo {
+    display: block;
+    margin: 0 auto 16px;
+  }
+  .department-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; width: 100%; }
+  .department-group { background: var(--surface); border: 1px solid var(--line); padding: 26px; box-shadow: 0 14px 30px -24px rgba(20,33,61,0.65); }
+  .department-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .department-item { border-top: 1px solid var(--line); padding-top: 10px; }
+  .department-head { display: block; margin-bottom: 8px; color: var(--ink); font-size: 12px; line-height: 1.4; }
+  .department-name { margin: 0 0 14px; font-size: 15px; font-weight: 700; }
+  .teacher-list li { color: var(--ink-soft); font-size: 12px; line-height: 1.55; }
 
   /* ---------- News ---------- */
   .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -426,7 +454,12 @@
     .footer-shell { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: repeat(2, 1fr); }
+    .tree-level { flex-direction: column; align-items: stretch; }
+    .tree-level .administrator-card,
+    .tree-principal .administrator-card,
+    .tree-teachers .administrator-card { max-width: none; }
+    .department-groups,
+    .department-list { grid-template-columns: 1fr; }
     .news-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
