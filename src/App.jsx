@@ -304,8 +304,9 @@ function App() {
     <div className="footer-map">
       <iframe
         title="Google Maps preview of Lycée Technique d'Akono"
-        src="https://maps.google.com/maps?q=Lyc%C3%A9e%20Technique%20d%27Akono%20Akono%20Cameroon&output=embed"
+        src="https://www.google.com/maps?q=3.4970453,11.3348656+(Lyc%C3%A9e+Technique+d%27Akono)&z=16&output=embed"
         loading="lazy"
+        allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
     </div>
