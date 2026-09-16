@@ -299,9 +299,19 @@ function App() {
 </main>
 
 <footer>
-  <div className="wrap foot-row">
-    <span data-fr="© 2026 Lycée Technique d'Akono" data-en="© 2026 G.T.H.S. Akono">© 2026 Lycée Technique d'Akono</span>
-    <span className="mono" data-fr="Matricule : 5KC1TEFD110406102" data-en="School code: 5KC1TEFD110406102">Matricule : 5KC1TEFD110406102</span>
+  <div className="wrap footer-shell">
+    <div className="footer-map">
+      <iframe
+        title="Google Maps preview of LT Akono"
+        src="https://www.google.com/maps?q=Akono%2C%20Cameroon&z=13&output=embed"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <div className="foot-row">
+      <span data-fr="© 2026 Lycée Technique d'Akono" data-en="© 2026 G.T.H.S. Akono">© 2026 Lycée Technique d'Akono</span>
+      <span className="mono" data-fr="Matricule : 5KC1TEFD110406102" data-en="School code: 5KC1TEFD110406102">Matricule : 5KC1TEFD110406102</span>
+    </div>
   </div>
 </footer>
     </div>

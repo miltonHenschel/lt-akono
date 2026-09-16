@@ -235,7 +235,34 @@
   .info-list .k { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--accent); margin-bottom: 5px; font-weight: 600; }
 
   footer { padding: 40px 0; }
-  .foot-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--ink-soft); }
+  .footer-shell {
+    display: grid;
+    grid-template-columns: minmax(220px, 380px) 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  .footer-map {
+    border: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--surface);
+    min-height: 190px;
+  }
+  .footer-map iframe {
+    display: block;
+    width: 100%;
+    height: 190px;
+    border: 0;
+    filter: grayscale(1) contrast(1.06);
+  }
+  .foot-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
 
   @media (max-width: 860px) {
     nav.links { display: none; }
@@ -245,6 +272,7 @@
       border-bottom: 1px solid var(--line); gap: 16px;
     }
     .menu-toggle { display: block; }
+    .footer-shell { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); }
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
     .dept-grid { grid-template-columns: 1fr; }
