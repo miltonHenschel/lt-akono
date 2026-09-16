@@ -57,6 +57,7 @@ function App() {
   }, [lang]);
 
   const toggleTheme = () => setDark((d) => !d);
+  const closeMobileMenu = () => setNavOpen(false);
 
   return (
     <div ref={rootRef}>
@@ -67,13 +68,13 @@ function App() {
       <div className="brand-text">Lycée Technique d'Akono<small data-fr="LT AKONO · 6e — Tle" data-en="G.T.H.S. AKONO · Form 1 — Upper Sixth">LT AKONO · 6e — Tle</small></div>
     </a>
     <nav className={navOpen ? "links open" : "links"}>
-      <a href="#top" data-fr="Accueil" data-en="Home">Accueil</a>
-      <a href="#apropos" data-fr="À propos" data-en="About">À propos</a>
-      <a href="#filieres" data-fr="Filières" data-en="Programs">Filières</a>
-      <a href="#admissions" data-fr="Admissions" data-en="Admissions">Admissions</a>
-      <a href="#actualites" data-fr="Actualités" data-en="News">Actualités</a>
-      <a href="#galerie" data-fr="Galerie" data-en="Gallery">Galerie</a>
-      <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+      <a href="#top" onClick={closeMobileMenu} data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="#apropos" onClick={closeMobileMenu} data-fr="À propos" data-en="About">À propos</a>
+      <a href="#filieres" onClick={closeMobileMenu} data-fr="Filières" data-en="Programs">Filières</a>
+      <a href="#admissions" onClick={closeMobileMenu} data-fr="Admissions" data-en="Admissions">Admissions</a>
+      <a href="#actualites" onClick={closeMobileMenu} data-fr="Actualités" data-en="News">Actualités</a>
+      <a href="#galerie" onClick={closeMobileMenu} data-fr="Galerie" data-en="Gallery">Galerie</a>
+      <a href="#contact" onClick={closeMobileMenu} data-fr="Contact" data-en="Contact">Contact</a>
     </nav>
     <div className="controls">
       <div className="lang-switch">
@@ -84,7 +85,16 @@ function App() {
         <div className="icons"><span>☀</span><span>☾</span></div>
         <div className="knob"></div>
       </div>
-      <button className="menu-toggle" aria-label="Menu" onClick={() => setNavOpen((o) => !o)}><span></span><span></span><span></span></button>
+      <button
+        className={navOpen ? "menu-toggle open" : "menu-toggle"}
+        aria-label={navOpen ? "Close menu" : "Open menu"}
+        aria-expanded={navOpen}
+        onClick={() => setNavOpen((o) => !o)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </header>
