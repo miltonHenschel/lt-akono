@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import "./index.css";
 import logoUrl from "./assets/logo.png";
+import heroAssemblyUrl from "./assets/hero-assembly.jpg";
 
 function App() {
   const rootRef = useRef(null);
   const [dark, setDark] = useState(false);
   const [lang, setLang] = useState("fr");
   const [navOpen, setNavOpen] = useState(false);
+  const [specialityIndex, setSpecialityIndex] = useState(0);
 
   // Apply saved theme on first load, falling back to system preference
   useEffect(() => {
@@ -58,6 +60,76 @@ function App() {
 
   const toggleTheme = () => setDark((d) => !d);
   const closeMobileMenu = () => setNavOpen(false);
+  const showPreviousSpeciality = () => {
+    setSpecialityIndex((index) =>
+      index === 0 ? specialities.length - 1 : index - 1
+    );
+  };
+  const showNextSpeciality = () => {
+    setSpecialityIndex((index) =>
+      index === specialities.length - 1 ? 0 : index + 1
+    );
+  };
+  const specialities = [
+    {
+      code: "AMEB · 01",
+      fr: "Génie Bois",
+      en: "Wood Engineering",
+      descriptionFr: "Menuiserie, ébénisterie et transformation du bois.",
+      descriptionEn: "Carpentry, cabinetmaking and wood processing.",
+    },
+    {
+      code: "F4 · 02",
+      fr: "Génie Bâtiment",
+      en: "Building Engineering",
+      descriptionFr: "Construction, topographie et dessin technique du bâtiment.",
+      descriptionEn: "Construction, surveying and building technical drawing.",
+    },
+    {
+      code: "F3 · 03",
+      fr: "Génie Électrique",
+      en: "Electrical Engineering",
+      descriptionFr: "Installations électriques, automatismes et maintenance des équipements.",
+      descriptionEn: "Electrical installations, automation and equipment maintenance.",
+    },
+    {
+      code: "CMA-MVT · 04",
+      fr: "Construction Mécanique, Automobile et Maintenance Après-Vente",
+      en: "Mechanical & Automotive Construction and After-Sales Maintenance",
+      descriptionFr: "Usinage, mécanique automobile et service après-vente.",
+      descriptionEn: "Machining, automotive mechanics and after-sales servicing.",
+    },
+    {
+      code: "CG · 05",
+      fr: "Comptabilité et Gestion",
+      en: "Accounting & Management",
+      descriptionFr: "Comptabilité générale, gestion commerciale et fiscalité.",
+      descriptionEn: "General accounting, commercial management and taxation.",
+    },
+    {
+      code: "ESF · 06",
+      fr: "Économie Sociale et Familiale",
+      en: "Social & Family Economics",
+      descriptionFr: "Nutrition, gestion du foyer et sciences sociales appliquées.",
+      descriptionEn: "Nutrition, home management and applied social sciences.",
+    },
+    {
+      code: "IH · 07",
+      fr: "Industrie Textile et Habillement",
+      en: "Textile & Garment Industry",
+      descriptionFr: "Confection, stylisme et technologies du textile.",
+      descriptionEn: "Garment making, styling and textile technology.",
+    },
+  ];
+  useEffect(() => {
+    const sliderTimer = window.setInterval(() => {
+      setSpecialityIndex((index) =>
+        index === specialities.length - 1 ? 0 : index + 1
+      );
+    }, 5000);
+
+    return () => window.clearInterval(sliderTimer);
+  }, [specialities.length]);
 
   return (
     <div ref={rootRef}>
@@ -148,42 +220,40 @@ function App() {
         </div>
         <div className="section-note" data-fr="Chaque filière mène à un diplôme reconnu (CAP, Probatoire, Baccalauréat technique)." data-en="Every program leads to a recognized diploma (CAP, Probatoire, Technical Baccalaureate).">Chaque filière mène à un diplôme reconnu (CAP, Probatoire, Baccalauréat technique).</div>
       </div>
-      <div className="dept-grid">
-        <div className="dept-card">
-          <div className="dept-code">AMEB · 01</div>
-          <h3 data-fr="Génie Bois" data-en="Wood Engineering">Génie Bois</h3>
-          <p data-fr="Menuiserie, ébénisterie et transformation du bois." data-en="Carpentry, cabinetmaking and wood processing.">Menuiserie, ébénisterie et transformation du bois.</p>
+      <div className="dept-slider" aria-label="Technical specialities">
+        <button
+          className="dept-slider-arrow prev"
+          type="button"
+          aria-label="Previous speciality"
+          onClick={showPreviousSpeciality}
+        >
+          ‹
+        </button>
+        <div className="dept-slider-window">
+          <div
+            className="dept-track"
+            style={{ transform: `translateX(-${specialityIndex * 100}%)` }}
+          >
+            {specialities.map((speciality) => (
+              <div className="dept-card" key={speciality.code}>
+                <img className="dept-card-image" src={heroAssemblyUrl} alt="" />
+                <div className="dept-card-body">
+                  <div className="dept-code">{speciality.code}</div>
+                  <h3 data-fr={speciality.fr} data-en={speciality.en}>{speciality.fr}</h3>
+                  <p data-fr={speciality.descriptionFr} data-en={speciality.descriptionEn}>{speciality.descriptionFr}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="dept-card">
-          <div className="dept-code">F4 · 02</div>
-          <h3 data-fr="Génie Bâtiment" data-en="Building Engineering">Génie Bâtiment</h3>
-          <p data-fr="Construction, topographie et dessin technique du bâtiment." data-en="Construction, surveying and building technical drawing.">Construction, topographie et dessin technique du bâtiment.</p>
-        </div>
-        <div className="dept-card">
-          <div className="dept-code">F3 · 03</div>
-          <h3 data-fr="Génie Électrique" data-en="Electrical Engineering">Génie Électrique</h3>
-          <p data-fr="Installations électriques, automatismes et maintenance des équipements." data-en="Electrical installations, automation and equipment maintenance.">Installations électriques, automatismes et maintenance des équipements.</p>
-        </div>
-        <div className="dept-card">
-          <div className="dept-code">CMA-MVT · 04</div>
-          <h3 data-fr="Construction Mécanique, Automobile et Maintenance Après-Vente" data-en="Mechanical & Automotive Construction and After-Sales Maintenance">Construction Mécanique, Automobile et Maintenance Après-Vente</h3>
-          <p data-fr="Usinage, mécanique automobile et service après-vente." data-en="Machining, automotive mechanics and after-sales servicing.">Usinage, mécanique automobile et service après-vente.</p>
-        </div>
-        <div className="dept-card">
-          <div className="dept-code">CG · 05</div>
-          <h3 data-fr="Comptabilité et Gestion" data-en="Accounting & Management">Comptabilité et Gestion</h3>
-          <p data-fr="Comptabilité générale, gestion commerciale et fiscalité." data-en="General accounting, commercial management and taxation.">Comptabilité générale, gestion commerciale et fiscalité.</p>
-        </div>
-        <div className="dept-card">
-          <div className="dept-code">ESF · 06</div>
-          <h3 data-fr="Économie Sociale et Familiale" data-en="Social & Family Economics">Économie Sociale et Familiale</h3>
-          <p data-fr="Nutrition, gestion du foyer et sciences sociales appliquées." data-en="Nutrition, home management and applied social sciences.">Nutrition, gestion du foyer et sciences sociales appliquées.</p>
-        </div>
-        <div className="dept-card">
-          <div className="dept-code">IH · 07</div>
-          <h3 data-fr="Industrie Textile et Habillement" data-en="Textile & Garment Industry">Industrie Textile et Habillement</h3>
-          <p data-fr="Confection, stylisme et technologies du textile." data-en="Garment making, styling and textile technology.">Confection, stylisme et technologies du textile.</p>
-        </div>
+        <button
+          className="dept-slider-arrow next"
+          type="button"
+          aria-label="Next speciality"
+          onClick={showNextSpeciality}
+        >
+          ›
+        </button>
       </div>
     </div>
   </section>
