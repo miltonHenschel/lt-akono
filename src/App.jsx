@@ -171,7 +171,7 @@ function App() {
   <div className="nav-row">
     <a className="brand" href="#top">
       <img className="brand-mark" src={logoUrl} alt="LT Akono crest" />
-      <div className="brand-text">Lycée Technique d'Akono<small data-fr="LT AKONO · 6e — Tle" data-en="G.T.H.S. AKONO · Form 1 — Upper Sixth">LT AKONO · 6e — Tle</small></div>
+      <div className="brand-text">Lycée Technique d'Akono<small data-fr="LT AKONO · A1 — Tle" data-en="G.T.H.S. AKONO · Y1 — US">LT AKONO · 6e — Tle</small></div>
     </a>
     <nav className={navOpen ? "links open" : "links"}>
       <a href="#top" onClick={closeMobileMenu} data-fr="Accueil" data-en="Home">Accueil</a>
