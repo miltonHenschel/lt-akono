@@ -335,13 +335,50 @@
   .dept-card p { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
 
   /* ---------- Administration ---------- */
-  .administration-tree { display: flex; flex-direction: column; align-items: center; }
-  .tree-level { display: flex; justify-content: center; gap: 16px; width: 100%; }
+  .administration-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .tree-level {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    animation: tree-level-reveal 0.7s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .tree-level:nth-child(1) { animation-delay: 0.05s; }
+  .tree-level:nth-child(3) { animation-delay: 0.15s; }
+  .tree-level:nth-child(5) { animation-delay: 0.25s; }
   .tree-level .administrator-card { flex: 1 1 0; max-width: 260px; }
   .tree-principal .administrator-card { max-width: 320px; }
   .tree-teachers .administrator-card { max-width: 420px; }
-  .tree-connector { width: 1px; height: 28px; background: var(--line-strong); }
-  .administrator-card { background: var(--surface); border: 1px solid var(--line); padding: 26px; min-height: 145px; box-shadow: 0 14px 30px -24px rgba(20,33,61,0.65); }
+  .tree-connector {
+    position: relative;
+    width: 2px;
+    height: 34px;
+    overflow: hidden;
+    background: var(--line);
+  }
+  .tree-connector::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: connector-draw 0.55s ease-out forwards;
+  }
+  .administrator-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px;
+    min-height: 145px;
+    box-shadow: 0 14px 30px -24px rgba(20,33,61,0.65);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .administrator-card:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    box-shadow: 0 18px 34px -22px rgba(20,33,61,0.65);
+  }
   .administrator-photo {
     width: 58px;
     height: 58px;
@@ -364,12 +401,31 @@
     margin: 0 auto 16px;
   }
   .department-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; width: 100%; }
-  .department-group { background: var(--surface); border: 1px solid var(--line); padding: 26px; box-shadow: 0 14px 30px -24px rgba(20,33,61,0.65); }
+  .department-group {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px;
+    box-shadow: 0 14px 30px -24px rgba(20,33,61,0.65);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .department-group:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    box-shadow: 0 18px 34px -22px rgba(20,33,61,0.65);
+  }
   .department-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .department-item { border-top: 1px solid var(--line); padding-top: 10px; }
   .department-head { display: block; margin-bottom: 8px; color: var(--ink); font-size: 12px; line-height: 1.4; }
   .department-name { margin: 0 0 14px; font-size: 15px; font-weight: 700; }
   .teacher-list li { color: var(--ink-soft); font-size: 12px; line-height: 1.55; }
+  @keyframes tree-level-reveal {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes connector-draw {
+    to { transform: scaleY(1); }
+  }
 
   /* ---------- News ---------- */
   .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -465,11 +521,15 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn, .btn:hover, .btn:active, .btn::after, .btn-outline::before, .switch .knob, .dept-track {
+    .btn, .btn:hover, .btn:active, .btn::after, .btn-outline::before, .switch .knob, .dept-track,
+    .tree-level, .tree-connector::after {
       transition: none !important; transform: none !important; filter: none !important; box-shadow: none !important;
+      animation: none !important;
     }
     .dept-track,
-    .dept-slider-arrow {
+    .dept-slider-arrow,
+    .administrator-card,
+    .department-group {
       transition: none !important;
     }
     .btn:hover::after { left: -60%; }
