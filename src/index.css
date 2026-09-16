@@ -147,7 +147,13 @@
   .hero .hero-tag { color: #F0964C; }
   .hero .hero-sub { color: rgba(242,241,236,0.85); }
   .hero .btn-primary { background: #E2711D; border-color: #E2711D; color: #12213A; }
-  .hero .btn-outline { border-color: rgba(242,241,236,0.6); color: #F2F1EC; }
+  .hero .btn-outline {
+    border-color: rgba(242,241,236,0.6);
+    color: #F2F1EC;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .btn-outline::before { z-index: -1; }
   .hero-stats { border-top-color: rgba(242,241,236,0.25) !important; }
   .hero .stat-label { color: rgba(242,241,236,0.7); }
   .hero-inner { max-width: 1120px; margin: 0 auto; padding: 90px 24px 80px; position: relative; }
