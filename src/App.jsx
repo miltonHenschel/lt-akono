@@ -107,7 +107,7 @@ function App() {
       <p className="hero-sub" data-fr="Du 1er cycle au 2nd cycle, le Lycée Technique d'Akono (LT AKONO) prépare ses élèves aux métiers techniques à travers un enseignement rigoureux et des ateliers pratiques bien équipés." data-en="From lower to upper secondary, Government Technical High School Akono (G.T.H.S. AKONO) prepares students for technical careers through rigorous teaching and well-equipped workshops.">Du 1er cycle au 2nd cycle, le Lycée Technique d'Akono (LT AKONO) prépare ses élèves aux métiers techniques à travers un enseignement rigoureux et des ateliers pratiques bien équipés.</p>
       <div className="hero-cta">
         <a href="#admissions" className="btn btn-primary" data-fr="Procédure d'admission" data-en="Admissions process">Procédure d'admission</a>
-        <a href="#filieres" className="btn btn-outline" data-fr="Voir les filières" data-en="View programs">Voir les filières</a>
+        <a href="#filieres" className="btn btn-outline" data-fr="Voir les filières" data-en="View Specialities">Voir les filières</a>
       </div>
       <div className="hero-stats">
         <div><div className="stat-num">7</div><div className="stat-label" data-fr="Filières techniques" data-en="Technical programs">Filières techniques</div></div>
