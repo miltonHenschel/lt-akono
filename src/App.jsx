@@ -126,32 +126,32 @@ function App() {
       groupFr: "DÉPARTEMENTS DE TRONC COMMUN",
       groupEn: "COMMON CORE DEPARTMENTS",
       departments: [
-        { name: "Anglais", head: "Ofuka", teachers: ["FOMBERE", "MANGA C.", "NNAMBOLE"] },
-        { name: "EPS", head: "EMBOLO", teachers: ["GUIMKENG"] },
-        { name: "Français", head: "MEBENGA", teachers: ["MBIA NOAH"] },
-        { name: "Histoire-Géographie-ECM-Philosophie", head: "ESSONO", teachers: ["ABAH ACHILLE", "ETEME", "MANGA"] },
-        { name: "Hygiène-Biologie", head: "TETKA", teachers: [] },
-        { name: "Informatique", head: "NKETCHOGUE", teachers: ["OKA"] },
-        { name: "Mathématiques", head: "NGONO ONDOA", teachers: ["DIFFO", "FOKOUE"] },
-        { name: "Physique-Chimie", head: "NGOLI", teachers: ["AGHA", "NDENGUE", "NZOUETCHOU", "YOMI"] },
+        { name: "Anglais", image: logoUrl, head: "Ofuka", teachers: ["FOMBERE", "MANGA C.", "NNAMBOLE"] },
+        { name: "EPS", image: logoUrl, head: "EMBOLO", teachers: ["GUIMKENG"] },
+        { name: "Français", image: logoUrl, head: "MEBENGA", teachers: ["MBIA NOAH"] },
+        { name: "Histoire-Géographie-ECM-Philosophie", image: logoUrl, head: "ESSONO", teachers: ["ABAH ACHILLE", "ETEME", "MANGA"] },
+        { name: "Hygiène-Biologie", image: logoUrl, head: "TETKA", teachers: [] },
+        { name: "Informatique", image: logoUrl, head: "NKETCHOGUE", teachers: ["OKA"] },
+        { name: "Mathématiques", image: logoUrl, head: "NGONO ONDOA", teachers: ["DIFFO", "FOKOUE"] },
+        { name: "Physique-Chimie", image: logoUrl, head: "NGOLI", teachers: ["AGHA", "NDENGUE", "NZOUETCHOU", "YOMI"] },
       ],
     },
     {
       groupFr: "DÉPARTEMENTS DE SPÉCIALITÉ",
       groupEn: "SPECIALITY DEPARTMENTS",
       departments: [
-        { name: "ACA", head: "EBA EFFA", teachers: ["ALOA", "AMBA'A", "MBEZELE", "MESSI BISSA", "N'DI NDJIBU LIZETTE", "NFONO"] },
-        { name: "MENU/AMEB", head: "MVOGO B.", teachers: ["DJUIFO", "KETOUM", "MESSINA", "NIJEN", "ONANA A."] },
-        { name: "ESCOM/CG", head: "MENGUE NTYE", teachers: ["AMOUAVOURI", "EWONDO", "MENGUE YANA", "MINLO", "TCHOUMTCHOUA"] },
-        { name: "CM", head: "NLEND B.", teachers: ["BELLALOMO", "FORMIN", "TSAMO A."] },
-        { name: "Droit", head: "LEA", teachers: ["BIDJO", "BOULE"] },
-        { name: "Économie", head: "NOAH ATEBA", teachers: ["MEKO O.", "OLEMBE M."] },
-        { name: "ESF", head: "MABE T.", teachers: ["GUIADEM T.", "MAKAM H.", "MBASSIKOL", "MOMNOUGUI", "ZEUFACK D."] },
-        { name: "EE/F3", head: "GUIADEM O.", teachers: ["JEWELDAI", "NTSAMA MB."] },
-        { name: "MACO/F4", head: "MAFFO N.", teachers: ["AWANA E.", "DJUATIO", "NGUEMA", "NJOH", "OWONE E.", "VOUNDI"] },
-        { name: "COME/IH", head: "MVOGO", teachers: ["ABOMBA", "BATCHOU", "FOGANG", "MAKAM C", "MAMBO", "MEYO", "ONOGO MARIE", "TJIDJO"] },
-        { name: "Marketing", head: "ASSOMO", teachers: ["KOUNGA"] },
-        { name: "MARE/CMA-MVT", head: "MBOUMBOUO", teachers: ["MBOUDOU", "NGUIMDO"] },
+        { name: "ACA", image: logoUrl, head: "EBA EFFA", teachers: ["ALOA", "AMBA'A", "MBEZELE", "MESSI BISSA", "N'DI NDJIBU LIZETTE", "NFONO"] },
+        { name: "MENU/AMEB", image: logoUrl, head: "MVOGO B.", teachers: ["DJUIFO", "KETOUM", "MESSINA", "NIJEN", "ONANA A."] },
+        { name: "ESCOM/CG", image: logoUrl, head: "MENGUE NTYE", teachers: ["AMOUAVOURI", "EWONDO", "MENGUE YANA", "MINLO", "TCHOUMTCHOUA"] },
+        { name: "CM", image: logoUrl, head: "NLEND B.", teachers: ["BELLALOMO", "FORMIN", "TSAMO A."] },
+        { name: "Droit", image: logoUrl, head: "LEA", teachers: ["BIDJO", "BOULE"] },
+        { name: "Économie", image: logoUrl, head: "NOAH ATEBA", teachers: ["MEKO O.", "OLEMBE M."] },
+        { name: "ESF", image: logoUrl, head: "MABE T.", teachers: ["GUIADEM T.", "MAKAM H.", "MBASSIKOL", "MOMNOUGUI", "ZEUFACK D."] },
+        { name: "EE/F3", image: logoUrl, head: "GUIADEM O.", teachers: ["JEWELDAI", "NTSAMA MB."] },
+        { name: "MACO/F4", image: logoUrl, head: "MAFFO N.", teachers: ["AWANA E.", "DJUATIO", "NGUEMA", "NJOH", "OWONE E.", "VOUNDI"] },
+        { name: "COME/IH", image: logoUrl, head: "MVOGO", teachers: ["ABOMBA", "BATCHOU", "FOGANG", "MAKAM C", "MAMBO", "MEYO", "ONOGO MARIE", "TJIDJO"] },
+        { name: "Marketing", image: logoUrl, head: "ASSOMO", teachers: ["KOUNGA"] },
+        { name: "MARE/CMA-MVT", image: logoUrl, head: "MBOUMBOUO", teachers: ["MBOUDOU", "NGUIMDO"] },
       ],
     },
   ];
@@ -367,7 +367,7 @@ function App() {
                 {department.departments.map((departmentItem) => (
                   <div className="department-item" key={departmentItem.name}>
                     <h3 className="department-name">{departmentItem.name}</h3>
-                    <img className="administrator-photo" src={logoUrl} alt="" />
+                    <img className="administrator-photo" src={departmentItem.image} alt="" />
                     <strong
                       className="department-head"
                       data-fr={`${departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)`}
