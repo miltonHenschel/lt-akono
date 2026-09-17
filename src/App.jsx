@@ -134,32 +134,32 @@ function App() {
       groupFr: "DÉPARTEMENTS DE TRONC COMMUN",
       groupEn: "COMMON CORE DEPARTMENTS",
       departments: [
-        { name: "Anglais", image: logoUrl, head: "Ofuka", teachers: ["FOMBERE", "MANGA C.", "NNAMBOLE"] },
-        { name: "EPS", image: logoUrl, head: "EMBOLO", teachers: ["GUIMKENG"] },
-        { name: "Français", image: logoUrl, head: "MEBENGA", teachers: ["MBIA NOAH"] },
-        { name: "Histoire-Géographie-ECM-Philosophie", image: logoUrl, head: "ESSONO", teachers: ["ABAH ACHILLE", "ETEME", "MANGA"] },
-        { name: "Hygiène-Biologie", image: logoUrl, head: "TETKA", teachers: [] },
-        { name: "Informatique", image: hodInfoUrl, head: "NKETCHOGUE", teachers: ["OKA"] },
-        { name: "Mathématiques", image: logoUrl, head: "NGONO ONDOA", teachers: ["DIFFO", "FOKOUE"] },
-        { name: "Physique-Chimie", image: logoUrl, head: "NGOLI", teachers: ["AGHA", "NDENGUE", "NZOUETCHOU", "YOMI"] },
+        { name: "ANGLAIS", nameEn: "ENGLISH LANGUAGE", image: logoUrl, head: "OFUKA", teachers: ["FOMBERE", "MANGA C.", "NNAMBOLE"] },
+        { name: "EPS", nameEn: "SPORTS", image: logoUrl, head: "EMBOLO", teachers: ["GUIMKENG"] },
+        { name: "FRANÇAIS", nameEn: "FRENCH LANGUAGE", image: logoUrl, head: "MEBENGA", teachers: ["MBIA NOAH"] },
+        { name: "HISTOIRE-GÉOGRAPHIE-ECM-PHILOSOPHIE", nameEn: "HIS/GEO/CIVICS/PHILO", image: logoUrl, head: "ESSONO", teachers: ["ABAH ACHILLE", "ETEME", "MANGA"] },
+        { name: "HYGIÈNE-BIOLOGIE", nameEn: "BIOLOGY", image: logoUrl, head: "TETKA", teachers: [] },
+        { name: "INFORMATIQUE", nameEn: "COMPUTER SCIENCE", image: hodInfoUrl, head: "NKETCHOGUE", teachers: ["OKA"] },
+        { name: "MATHÉMATIQUES", nameEn: "MATHEMATICS", image: logoUrl, head: "NGONO ONDOA", teachers: ["DIFFO", "FOKOUE"] },
+        { name: "PHYSIQUE-CHIMIE", nameEn: "PHYSICS/CHEMISTRY", image: logoUrl, head: "NGOLI", teachers: ["AGHA", "NDENGUE", "NZOUETCHOU", "YOMI"] },
       ],
     },
     {
       groupFr: "DÉPARTEMENTS DE SPÉCIALITÉ",
       groupEn: "SPECIALITY DEPARTMENTS",
       departments: [
-        { name: "ACA", image: logoUrl, head: "EBA EFFA", teachers: ["ALOA", "AMBA'A", "MBEZELE", "MESSI BISSA", "N'DI NDJIBU LIZETTE", "NFONO"] },
-        { name: "MENU/AMEB", image: logoUrl, head: "MVOGO B.", teachers: ["DJUIFO", "KETOUM", "MESSINA", "NIJEN", "ONANA A."] },
-        { name: "ESCOM/CG", image: logoUrl, head: "MENGUE NTYE", teachers: ["AMOUAVOURI", "EWONDO", "MENGUE YANA", "MINLO", "TCHOUMTCHOUA"] },
-        { name: "CM", image: logoUrl, head: "NLEND B.", teachers: ["BELLALOMO", "FORMIN", "TSAMO A."] },
-        { name: "Droit", image: logoUrl, head: "LEA", teachers: ["BIDJO", "BOULE"] },
-        { name: "Économie", image: logoUrl, head: "NOAH ATEBA", teachers: ["MEKO O.", "OLEMBE M."] },
-        { name: "ESF", image: logoUrl, head: "MABE T.", teachers: ["GUIADEM T.", "MAKAM H.", "MBASSIKOL", "MOMNOUGUI", "ZEUFACK D."] },
-        { name: "EE/F3", image: logoUrl, head: "GUIADEM O.", teachers: ["JEWELDAI", "NTSAMA MB."] },
-        { name: "MACO/F4", image: logoUrl, head: "MAFFO N.", teachers: ["AWANA E.", "DJUATIO", "NGUEMA", "NJOH", "OWONE E.", "VOUNDI"] },
-        { name: "COME/IH", image: logoUrl, head: "MVOGO", teachers: ["ABOMBA", "BATCHOU", "FOGANG", "MAKAM C", "MAMBO", "MEYO", "ONOGO MARIE", "TJIDJO"] },
-        { name: "Marketing", image: logoUrl, head: "ASSOMO", teachers: ["KOUNGA"] },
-        { name: "MARE/CMA-MVT", image: logoUrl, head: "MBOUMBOUO", teachers: ["MBOUDOU", "NGUIMDO"] },
+        { name: "ACA", nameEn: "ACA", image: logoUrl, head: "EBA EFFA", teachers: ["ALOA", "AMBA'A", "MBEZELE", "MESSI BISSA", "N'DI NDJIBU LIZETTE", "NFONO"] },
+        { name: "MENU/AMEB", nameEn: "MENU/AMEB", image: logoUrl, head: "MVOGO B.", teachers: ["DJUIFO", "KETOUM", "MESSINA", "NIJEN", "ONANA A."] },
+        { name: "ESCOM/CG", nameEn: "ESCOM/CG", image: logoUrl, head: "MENGUE NTYE", teachers: ["AMOUAVOURI", "EWONDO", "MENGUE YANA", "MINLO", "TCHOUMTCHOUA"] },
+        { name: "CM", nameEn: "CM", image: logoUrl, head: "NLEND B.", teachers: ["BELLALOMO", "FORMIN", "TSAMO A."] },
+        { name: "DROIT", nameEn: "LAW", image: logoUrl, head: "LEA", teachers: ["BIDJO", "BOULE"] },
+        { name: "ÉCONOMIE", nameEn: "ÉCONOMICS", image: logoUrl, head: "NOAH ATEBA", teachers: ["MEKO O.", "OLEMBE M."] },
+        { name: "ESF", nameEn: "ESF", image: logoUrl, head: "MABE T.", teachers: ["GUIADEM T.", "MAKAM H.", "MBASSIKOL", "MOMNOUGUI", "ZEUFACK D."] },
+        { name: "EE/F3", nameEn: "EE/F3", image: logoUrl, head: "GUIADEM O.", teachers: ["JEWELDAI", "NTSAMA MB."] },
+        { name: "MACO/F4", nameEn: "BUILDING AND CONSTRUCTION", image: logoUrl, head: "MAFFO N.", teachers: ["AWANA E.", "DJUATIO", "NGUEMA", "NJOH", "OWONE E.", "VOUNDI"] },
+        { name: "COME/IH", nameEn: "COME/IH", image: logoUrl, head: "MVOGO", teachers: ["ABOMBA", "BATCHOU", "FOGANG", "MAKAM C", "MAMBO", "MEYO", "ONOGO MARIE", "TJIDJO"] },
+        { name: "MARKETING", nameEn: "MARKETING", image: logoUrl, head: "ASSOMO", teachers: ["KOUNGA"] },
+        { name: "MARE/CMA-MVT", nameEn: "MARE/CMA-MVT", image: logoUrl, head: "MBOUMBOUO", teachers: ["MBOUDOU", "NGUIMDO"] },
       ],
     },
   ];
@@ -313,7 +313,7 @@ function App() {
         <div className="tree-level tree-principal">
           <div className="administrator-card">
             <img className="administrator-photo" src={logoUrl} alt="" />
-            <div className="administrator-role" data-fr="Principal" data-en="Principal">Principal</div>
+            <div className="administrator-role" data-fr="Proviseur" data-en="Principal">Proviseur</div>
             <h3>AMBE Gabriel</h3>
           </div>
         </div>
@@ -321,22 +321,22 @@ function App() {
         <div className="tree-level tree-vice-principals">
           <div className="administrator-card">
             <img className="administrator-photo" src={logoUrl} alt="" />
-            <div className="administrator-role" data-fr="Vice-Principal · Section générale" data-en="Vice-Principal · General Section">Vice-Principal · Section générale</div>
+            <div className="administrator-role" data-fr="Censeur · Section générale" data-en="Vice-Principal · General Section">Censeur · Section générale</div>
             <h3>MANGA</h3>
           </div>
           <div className="administrator-card">
             <img className="administrator-photo" src={logoUrl} alt="" />
-            <div className="administrator-role" data-fr="Vice-Principal · Section STT" data-en="Vice-Principal · STT Section">Vice-Principal · Section STT</div>
+            <div className="administrator-role" data-fr="Censeur · Section STT" data-en="Vice-Principal · STT Section">Censeur · Section STT</div>
             <h3>ONANA Ernest</h3>
           </div>
           <div className="administrator-card">
             <img className="administrator-photo" src={logoUrl} alt="" />
-            <div className="administrator-role" data-fr="Vice-Principal · Section IND" data-en="Vice-Principal · IND Section">Vice-Principal · Section IND</div>
+            <div className="administrator-role" data-fr="Censeur · Section IND" data-en="Vice-Principal · IND Section">Censeur · Section IND</div>
             <h3>DIBOMA</h3>
           </div>
           <div className="administrator-card">
             <img className="administrator-photo" src={logoUrl} alt="" />
-            <div className="administrator-role" data-fr="Vice-Principal · Section IND" data-en="Vice-Principal · IND Section">Vice-Principal · Section IND</div>
+            <div className="administrator-role" data-fr="Censeur · Section IND" data-en="Vice-Principal · IND Section">Censeur · Section IND</div>
             <h3>INACK</h3>
           </div>
         </div>
@@ -374,7 +374,11 @@ function App() {
               <div className="department-list">
                 {department.departments.map((departmentItem) => (
                   <div className="department-item" key={departmentItem.name}>
-                    <h3 className="department-name">{departmentItem.name}</h3>
+                    <h3 className="department-name">
+                      <span data-fr={departmentItem.name} data-en={departmentItem.nameEn || departmentItem.name}>
+                        {departmentItem.name}
+                      </span>
+                    </h3>
                     <img className="administrator-photo" src={departmentItem.image} alt="" />
                     <strong
                       className="department-head"
