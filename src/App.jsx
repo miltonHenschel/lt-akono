@@ -347,11 +347,6 @@ function App() {
             <div className="administrator-role" data-fr="Surveillant Général" data-en="Senior Discipline Master">Surveillant Général</div>
             <h3>ONAMBELE</h3>
           </div>
-          <div className="administrator-card">
-            <img className="administrator-photo" src={logoUrl} alt="" />
-            <div className="administrator-role" data-fr="Conseiller de discipline" data-en="Discipline Master">Conseiller de discipline</div>
-            <h3 data-fr="Nom à ajouter" data-en="Name to be added">Nom à ajouter</h3>
-          </div>
           {["EYEMAM", "NGOMBI", "NGUENDA", "NTONGO"].map((name) => (
             <div className="administrator-card" key={name}>
               <img className="administrator-photo" src={logoUrl} alt="" />
