@@ -426,8 +426,33 @@
   }
   .department-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .department-item { border-top: 1px solid var(--line); padding-top: 10px; }
-  .department-head { display: block; margin-bottom: 8px; color: var(--ink); font-size: 12px; line-height: 1.4; }
+  .department-head { display: flex; align-items: center; justify-content: center; gap: 4px; margin-bottom: 8px; color: var(--ink); font-size: 12px; line-height: 1.4; }
   .department-name { margin: 0 0 14px; font-size: 15px; font-weight: 700; }
+  .department-teachers-toggle {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    font: 600 11px 'IBM Plex Mono', monospace;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .department-teachers-toggle:hover,
+  .department-teachers-toggle:focus-visible {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #FFFFFF;
+  }
+  .department-teachers-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
   .teacher-list li { color: var(--ink-soft); font-size: 12px; line-height: 1.55; }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .administrator-card,

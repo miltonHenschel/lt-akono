@@ -10,6 +10,7 @@ function App() {
   const [lang, setLang] = useState("fr");
   const [navOpen, setNavOpen] = useState(false);
   const [specialityIndex, setSpecialityIndex] = useState(0);
+  const [expandedDepartments, setExpandedDepartments] = useState({});
 
   // Apply saved theme on first load, falling back to system preference
   useEffect(() => {
@@ -61,6 +62,12 @@ function App() {
 
   const toggleTheme = () => setDark((d) => !d);
   const closeMobileMenu = () => setNavOpen(false);
+  const toggleDepartmentTeachers = (departmentName) => {
+    setExpandedDepartments((expanded) => ({
+      ...expanded,
+      [departmentName]: !expanded[departmentName],
+    }));
+  };
   const showPreviousSpeciality = () => {
     setSpecialityIndex((index) =>
       index === 0 ? specialities.length - 1 : index - 1
@@ -371,16 +378,47 @@ function App() {
                     <img className="administrator-photo" src={departmentItem.image} alt="" />
                     <strong
                       className="department-head"
-                      data-fr={`${departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)`}
-                      data-en={`${departmentItem.head?.toUpperCase() || "NAME TO BE ADDED"} (HOD)`}
                     >
-                      {departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)
+                      <span
+                        data-fr={`${departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)`}
+                        data-en={`${departmentItem.head?.toUpperCase() || "NAME TO BE ADDED"} (HOD)`}
+                      >
+                        {departmentItem.head?.toUpperCase() || "NOM À AJOUTER"} (AP)
+                      </span>
+                      <button
+                        className="department-teachers-toggle"
+                        type="button"
+                        aria-expanded={Boolean(expandedDepartments[departmentItem.name])}
+                        aria-label={
+                          expandedDepartments[departmentItem.name]
+                            ? lang === "fr"
+                              ? "Masquer les enseignants"
+                              : "Hide teachers"
+                            : lang === "fr"
+                              ? "Afficher les enseignants"
+                              : "Show teachers"
+                        }
+                        title={
+                          expandedDepartments[departmentItem.name]
+                            ? lang === "fr"
+                              ? "Masquer les enseignants"
+                              : "Hide teachers"
+                            : lang === "fr"
+                              ? "Afficher les enseignants"
+                              : "Show teachers"
+                        }
+                        onClick={() => toggleDepartmentTeachers(departmentItem.name)}
+                      >
+                        {expandedDepartments[departmentItem.name] ? "−" : "+"}
+                      </button>
                     </strong>
-                    <ul className="teacher-list">
-                      {departmentItem.teachers.map((teacher) => (
-                        <li key={teacher}>{teacher}</li>
-                      ))}
-                    </ul>
+                    {expandedDepartments[departmentItem.name] && (
+                      <ul className="teacher-list">
+                        {departmentItem.teachers.map((teacher) => (
+                          <li key={teacher}>{teacher}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 ))}
               </div>
