@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./index.css";
 import logoUrl from "./assets/logo.png";
 import heroAssemblyUrl from "./assets/hero-assembly.jpg";
+import hodInfoUrl from "./assets/hod-info.jpg";
 
 function App() {
   const rootRef = useRef(null);
@@ -131,7 +132,7 @@ function App() {
         { name: "Français", image: logoUrl, head: "MEBENGA", teachers: ["MBIA NOAH"] },
         { name: "Histoire-Géographie-ECM-Philosophie", image: logoUrl, head: "ESSONO", teachers: ["ABAH ACHILLE", "ETEME", "MANGA"] },
         { name: "Hygiène-Biologie", image: logoUrl, head: "TETKA", teachers: [] },
-        { name: "Informatique", image: logoUrl, head: "NKETCHOGUE", teachers: ["OKA"] },
+        { name: "Informatique", image: hodInfoUrl, head: "NKETCHOGUE", teachers: ["OKA"] },
         { name: "Mathématiques", image: logoUrl, head: "NGONO ONDOA", teachers: ["DIFFO", "FOKOUE"] },
         { name: "Physique-Chimie", image: logoUrl, head: "NGOLI", teachers: ["AGHA", "NDENGUE", "NZOUETCHOU", "YOMI"] },
       ],
